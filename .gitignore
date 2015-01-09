@@ -1,0 +1,7 @@
+MixpanelStaticLibrary/DerivedData
+MixpanelStaticLibrary/build
+MixpanelBindingsClassic/obj
+MixpanelBindingsClassic/bin
+MixpanelBindings/obj
+MixpanelBindings/bin
+*.swp

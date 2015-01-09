@@ -1,0 +1,3 @@
+[submodule "mixpanel-iphone"]
+	path = mixpanel-iphone
+	url = https://github.com/NinZine/mixpanel-iphone
