@@ -305,5 +305,85 @@ namespace MixpanelBindingsClassic
 		bool MixpanelWillFlush (Mixpanel mixpanel);
 	}
 
+	// @interface MPTweak : NSObject
+	[BaseType (typeof (NSObject))]
+	interface MPTweak {
+
+		// -(instancetype)initWithName:(NSString *)name andEncoding:(NSString *)encoding;
+		[Export ("initWithName:andEncoding:")]
+		IntPtr Constructor (string name, string encoding);
+
+		// @property (readonly, copy, nonatomic) NSString * name;
+		[Export ("name")]
+		string Name { get; }
+
+		// @property (readonly, copy, nonatomic) NSString * encoding;
+		[Export ("encoding")]
+		string Encoding { get; }
+
+		// @property (readwrite, nonatomic, strong) MPTweakValue defaultValue;
+		[Export ("defaultValue", ArgumentSemantic.Retain)]
+		NSObject DefaultValue { get; set; }
+
+		// @property (readwrite, nonatomic, strong) MPTweakValue currentValue;
+		[Export ("currentValue", ArgumentSemantic.Retain)]
+		NSObject CurrentValue { get; set; }
+
+		// @property (readwrite, nonatomic, strong) MPTweakValue minimumValue;
+		[Export ("minimumValue", ArgumentSemantic.Retain)]
+		NSObject MinimumValue { get; set; }
+
+		// @property (readwrite, nonatomic, strong) MPTweakValue maximumValue;
+		[Export ("maximumValue", ArgumentSemantic.Retain)]
+		NSObject MaximumValue { get; set; }
+
+		// -(void)addObserver:(id<MPTweakObserver>)observer;
+		[Export ("addObserver:")]
+		void AddObserver (MPTweakObserver observer);
+
+		// -(void)removeObserver:(id<MPTweakObserver>)observer;
+		[Export ("removeObserver:")]
+		void RemoveObserver (MPTweakObserver observer);
+	}
+
+	// @protocol MPTweakObserver <NSObject>
+	[Protocol, Model]
+	[BaseType (typeof (NSObject))]
+	interface MPTweakObserver {
+
+		// @required -(void)tweakDidChange:(MPTweak *)tweak;
+		[Export ("tweakDidChange:")]
+		[Abstract]
+		void TweakDidChange (MPTweak tweak);
+	}
+
+	// @interface MPTweakStore : NSObject
+	[BaseType (typeof (NSObject))]
+	interface MPTweakStore {
+
+		// @property (readonly, copy, nonatomic) NSArray * tweaks;
+		[Export ("tweaks", ArgumentSemantic.Copy)]
+		NSObject [] Tweaks { get; }
+
+		// +(instancetype)sharedInstance;
+		[Static, Export ("sharedInstance")]
+		MPTweakStore SharedInstance ();
+
+		// -(MPTweak *)tweakWithName:(NSString *)name;
+		[Export ("tweakWithName:")]
+		MPTweak TweakWithName (string name);
+
+		// -(void)addTweak:(MPTweak *)tweak;
+		[Export ("addTweak:")]
+		void AddTweak (MPTweak tweak);
+
+		// -(void)removeTweak:(MPTweak *)tweak;
+		[Export ("removeTweak:")]
+		void RemoveTweak (MPTweak tweak);
+
+		// -(void)reset;
+		[Export ("reset")]
+		void Reset ();
+	}
 }
 
