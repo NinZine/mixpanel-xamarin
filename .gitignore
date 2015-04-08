@@ -5,3 +5,5 @@ MixpanelBindingsClassic/bin
 MixpanelBindings/obj
 MixpanelBindings/bin
 *.swp
+MixpanelAndroid/bin
+MixpanelAndroid/obj

@@ -1,0 +1,33 @@
+﻿<metadata>
+
+	<!-- Rename package name -->
+	<attr path="/api/package[@name='com.mixpanel.android']" name="managedName">Mixpanel.Android</attr>
+	<attr path="/api/package[@name='com.mixpanel.android.mpmetrics']" name="managedName">Mixpanel.Android.MpMetrics</attr>
+	<attr path="/api/package[@name='com.mixpanel.android.surveys']" name="managedName">Mixpanel.Android.Surveys</attr>
+	<attr path="/api/package[@name='com.mixpanel.android.util']" name="managedName">Mixpanel.Android.Util</attr>
+	<attr path="/api/package[@name='com.mixpanel.android.viewcrawler']" name="managedName">Mixpanel.Android.ViewCrawler</attr>
+
+	<attr path="/api/package[@name='com.mixpanel.android.java_websocket']/interface[@name='WebSocketListener']/method[@name='onWebsocketMessage' and count(parameter)=2 and parameter[2][@type='java.nio.ByteBuffer']]" name="managedName">OnWebsocketByteMessage</attr>
+
+	<remove-node path="/api/package[@name='com.mixpanel.android.mpmetrics']/class[@name='UpdateDisplayState']" />
+	<remove-node path="/api/package[@name='com.mixpanel.android.surveys']/class[@name='SurveyActivity']" />
+
+	<remove-node path="/api/package[@name='com.mixpanel.android.mpmetrics']/class[@name='InAppFragment']/method[@name='setDisplayState' and count(parameter)=3 and parameter[1][@type='com.mixpanel.android.mpmetrics.MixpanelAPI'] and parameter[2][@type='int'] and parameter[3][@type='com.mixpanel.android.mpmetrics.UpdateDisplayState.DisplayState.InAppNotificationState']]" />
+
+	<attr path="/api/package[@name='com.mixpanel.android.mpmetrics']/class[@name='InAppNotification']/method[@name='getType' and count(parameter)=0]" name="managedName">GetTheType</attr>
+
+	<attr path="/api/package[@name='com.mixpanel.android.surveys']/class[@name='CardCarouselLayout.ChoiceAdapter']/method[@name='getItem' and count(parameter)=1 and parameter[1][@type='int']]" name="managedReturn">Java.Lang.Object</attr>
+
+	<remove-node path="/api/package[@name='com.mixpanel.android.surveys']/class[@name='CardCarouselLayout.ChoiceAdapter']/method[@name='getItem' and count(parameter)=1 and parameter[1][@type='int']]" />
+
+	<!-- FIXME: For binding Websockets refer to: https://gist.github.com/brendanzagaeski/3868e30b85a1feb1181b -->
+	<remove-node path="/api/package[@name='com.mixpanel.android.java_websocket.client']" />
+	<remove-node path="/api/package[@name='com.mixpanel.android.java_websocket.drafts']" />
+	<remove-node path="/api/package[@name='com.mixpanel.android.java_websocket.exceptions']" />
+	<remove-node path="/api/package[@name='com.mixpanel.android.java_websocket.framing']" />
+	<remove-node path="/api/package[@name='com.mixpanel.android.java_websocket.handshake']" />
+	<remove-node path="/api/package[@name='com.mixpanel.android.java_websocket.server']" />
+	<remove-node path="/api/package[@name='com.mixpanel.android.java_websocket.util']" />
+	<remove-node path="/api/package[@name='com.mixpanel.android.java_websocket']" />
+
+</metadata>
