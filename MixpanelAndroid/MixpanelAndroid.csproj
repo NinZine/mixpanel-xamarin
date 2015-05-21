@@ -54,6 +54,6 @@
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Novell\Xamarin.Android.Bindings.targets" />
   <ItemGroup>
-    <EmbeddedJar Include="Jars\mixpanel-android-4.5.3.jar" />
+    <LibraryProjectZip Include="Jars\mixpanel-android-release.aar" />
   </ItemGroup>
 </Project>
